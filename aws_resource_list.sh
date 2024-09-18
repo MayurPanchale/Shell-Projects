@@ -37,6 +37,12 @@ fi
 aws_region=$1
 aws_service=$2
 
+# Check if the service is in uppercase or mixed case and convert it to lowercase
+if [[ "$aws_service" =~ [A-Z] ]]; then
+    echo "Converting AWS service '$aws_service' to lowercase..."
+    aws_service=$(echo "$aws_service" | tr '[:upper:]' '[:lower:]')
+fi
+
 # Check if the AWS CLI is installed
 if ! command -v aws &> /dev/null; then
     echo "AWS CLI is not installed. Please install the AWS CLI and try again."
