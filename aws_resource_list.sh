@@ -3,7 +3,7 @@
 ######################################################################
 # This Script will list all the resources in the aws account
 # Author: MayurPanchale/Devops team
-# Version: v0.0.1
+# Version: v0.0.2
 #
 # Following are the supported aws services by the script
 # 1. EC2
@@ -36,6 +36,13 @@ fi
 # Assign the arguments to variables and convert the service to lowercase
 aws_region=$1
 aws_service=$2
+
+# Check if the service is in uppercase or mixed case and convert it to lowercase
+if [[ "$aws_service" =~ [A-Z] ]]; then
+    echo "Converting AWS service '$aws_service' to lowercase..."
+    aws_service=$(echo "$aws_service" | tr '[:upper:]' '[:lower:]')
+fi
+
 
 # Check if the service is in uppercase or mixed case and convert it to lowercase
 if [[ "$aws_service" =~ [A-Z] ]]; then
