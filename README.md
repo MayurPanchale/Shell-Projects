@@ -108,3 +108,6 @@ bash
 ```
 ./disk_utilization.sh
 ```
+*** This script provides a simple way to monitor disk usage and receive alerts via email. Ensure that your server has a valid email configuration to send alerts successfully.
+
+Feel free to modify the alert threshold and the recipient email address as needed. For further enhancements, consider scheduling the script to run periodically using cron.***
