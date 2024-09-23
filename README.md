@@ -49,7 +49,7 @@ df -H
 The -H option shows sizes in powers of 1000 as follows:
 
 ```bash
-Copy code
+
 Filesystem             Size   Used  Avail Use% Mounted on
 /dev/hdb1               20G    14G   5.5G  71% /
 tmpfs                  394M   4.1k   394M   1% /dev/shm
@@ -97,11 +97,41 @@ Verify the Installation:
 ```bash
 $ mail --version
 ```
+## How to set up mail in ubuntu linux 
+Setting up mail on a Debian/Ubuntu system typically involves configuring an email client or a mail transfer agent (MTA) like Postfix or Exim. Here’s a general guide to setting up Postfix for sending emails using the command line
+### Install Postfix
+
+1. **Open a Terminal.**
+
+2. **Install Postfix:**
+   Run the following command:
+   ```bash
+   sudo apt install postfix 
+   ```
+3. During Installation: You will be prompted to select the configuration type. Choose "Internet Site" and enter your system's hostname when prompted.
+![Configuration Type](D:\Learning\Shell\Shell-Projects\Images\mailutils-postfix-configuration.png)
+
+Configure Postfix for SMTP
+Edit the Postfix Configuration File: Open the configuration file:
+
+```bash
+sudo nano /etc/postfix/main.cf
+```
+Set Your Hostname and Destination: Ensure the following lines are set correctly:
+
+```bash
+myhostname = yourhostname
+mydestination = $myhostname, localhost.$mydomain, localhost
+Configure the Relay Host: If you're using an external SMTP server (like Gmail), add the following line:
+```
+```bash
+relayhost = [smtp.your-email-provider.com]:587
+```
 ### Running the Script
 Save the script as alert-disk-utilization.sh
 Make the script executable:
-bash
-Copy code
+
+```bash
 chmod +x alert-disk-utilization.sh
 Run the script:
 bash
