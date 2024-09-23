@@ -97,3 +97,14 @@ Verify the Installation:
 ```bash
 $ mail --version
 ```
+### Running the Script
+Save the script as alert-disk-utilization.sh
+Make the script executable:
+bash
+Copy code
+chmod +x alert-disk-utilization.sh
+Run the script:
+bash
+```
+./disk_utilization.sh
+```
