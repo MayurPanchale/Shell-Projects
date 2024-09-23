@@ -108,6 +108,13 @@ bash
 ```
 ./disk_utilization.sh
 ```
-*** This script provides a simple way to monitor disk usage and receive alerts via email. Ensure that your server has a valid email configuration to send alerts successfully.
+## Conclusion
 
-Feel free to modify the alert threshold and the recipient email address as needed. For further enhancements, consider scheduling the script to run periodically using cron.***
+This script provides a straightforward way to monitor disk usage and receive alerts via email. Ensure that your server has a valid email configuration to send alerts successfully.
+
+You can modify the alert threshold and the recipient email address as needed. For further enhancements, consider scheduling the script to run periodically using `cron` to automate the monitoring process.
+
+For example, to run the script every hour, you can add the following line to your crontab:
+
+```bash
+0 * * * * /path/to/disk_utilization.sh
